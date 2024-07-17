@@ -17,7 +17,7 @@ prompt_chain = [
 tree_of_thoughts_prompt = "Consider different ways a magic backpack could help someone in various situations, and explain each."
 
 # Function to generate and print response
-def generate_and_print(prompt, description):
+def generate_and_print(prompt):
     response = model.generate_content(prompt)
     print(f"Prompt: {prompt}\nResponse: {response.text}\n")
     return prompt, response.text

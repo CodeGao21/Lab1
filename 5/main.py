@@ -1,34 +1,43 @@
-from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from nltk.tokenize import word_tokenize
-from gensim import summarize
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer
+import spacy
 
 app = FastAPI()
 
-class TextRequest(BaseModel):
+# Load Spacy model
+nlp = spacy.load("en_core_web_sm")
+
+class TextInput(BaseModel):
     text: str
 
-class SummaryResponse(BaseModel):
-    summary: str
+@app.post("/summarize/")
+async def summarize_text(input: TextInput):
+    text = input.text
+    parser = PlaintextParser.from_string(text, Tokenizer("english"))
+    summarizer = LsaSummarizer()
+    summary = summarizer(parser.document, 5)  # Let's assume 5 sentences is our limit
 
-class TokenCountResponse(BaseModel):
-    token_count: int
+    summary_text = " ".join([str(sentence) for sentence in summary])
+    words = summary_text.split()
 
-@app.post("/summarize", response_model=SummaryResponse)
-def summarize_text(request: TextRequest):
-    try:
-        summary = summarize(request.text, word_count=100)
-        return {"summary": summary}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    if len(words) > 100:
+        summary_text = " ".join(words[:100]) + "..."
 
-@app.post("/token-count", response_model=TokenCountResponse)
-def count_tokens(request: TextRequest):
-    tokens = word_tokenize(request.text)
+    return {"summary": summary_text}
+
+@app.post("/token_count/")
+async def token_count(input: TextInput):
+    text = input.text
+    doc = nlp(text)
+    tokens = [token.text for token in doc]
+
     return {"token_count": len(tokens)}
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
 
