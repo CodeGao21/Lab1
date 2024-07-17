@@ -1,0 +1,13 @@
+Gemini Code Assist in Visual Studio Code (VS Code)
+
+It significantly enhances the productivity by providing intelligent code completion and
+context-aware suggestions right as I write code. Also, 
+it suggests relevant code snippets, function names, and 
+variable types based on the context of my project. 
+
+In the same way, Gemini Code Assist alerts of potential errors as I code,
+which could save debugging time later on. 
+Additionally, having documentation integrated directly into the editor is incredibly useful and 
+I found a quickly access to API references and explore function definitions
+without needing to switch between different windows or tabs,
+making it easier to understand and implement complex code structures.

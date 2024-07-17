@@ -1,0 +1,34 @@
+Zero-shot Prompting: Generating responses or outputs without explicit training on examples of 
+the task, often using pretrained models that generalize based on the prompt alone.
+
+Few-shot Prompting: Using a small number of examples or instances (shots) to guide the generation 
+of outputs. This approach fine-tunes models with minimal data for specific tasks.
+
+Chain-of-Thought (CoT) Prompting: Prompts designed to guide a model through a sequence of connected 
+ideas or concepts, encouraging coherent and logical progression in generated text.
+
+Self-Consistency: Ensuring generated outputs remain consistent with previously generated content or
+ responses, maintaining coherence within a conversation or context.
+
+Generate Knowledge Prompting: Prompts aimed at generating new factual information or expanding on 
+existing knowledge within a specific domain.
+
+Prompt Chaining: Using multiple prompts sequentially to guide the generation process, often to refine
+ or extend the output progressively.
+
+Tree of Thoughts: A structured approach where prompts guide the generation of branching ideas or 
+concepts, resembling a tree structure.
+
+Retrieval Augmented Generation: Integrating retrieval-based methods within generative models to 
+enhance the relevance and accuracy of generated outputs by retrieving and incorporating relevant
+ information from external sources.
+
+Directional Stimulus Prompting: Prompts designed to influence the direction or focus of generated 
+outputs by emphasizing specific aspects or goals.
+
+ReAct Prompting: Prompts designed to elicit responses that react to or address specific aspects 
+of input or context.
+
+Multimodal CoT Prompting: Using prompts that incorporate multiple modalities
+(such as text, images, or audio) to guide coherent and integrated generation across different
+types of data.

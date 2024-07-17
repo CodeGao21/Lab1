@@ -1,0 +1,14 @@
+Ruby to Python Snippet
+The goal of this code is to display a menu in a console application, 
+allow the user to make a selection, and perform different actions based on the user's choice. 
+It clears the screen and displays messages for adding or subtracting numbers.
+
+JavaScript/Node.js to Python Snippet
+This code generates a universally unique identifier (UUID). 
+The JavaScript version uses crypto.getRandomValues for randomization, 
+while the Python version leverages the uuid module's uuid4 function to achieve the same result.
+
+Golang to Python Snippet
+The purpose of this code is to reverse a given string. 
+It converts the string to a list of characters, swaps elements from both ends towards the center, 
+and then joins the characters back into a string in reverse order.
