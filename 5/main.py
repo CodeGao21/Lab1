@@ -27,3 +27,8 @@ def summarize_text(request: TextRequest):
 def count_tokens(request: TextRequest):
     tokens = word_tokenize(request.text)
     return {"token_count": len(tokens)}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+
