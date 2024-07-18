@@ -18,7 +18,7 @@ async def summarize_text(input: TextInput):
     text = input.text
     parser = PlaintextParser.from_string(text, Tokenizer("english"))
     summarizer = LsaSummarizer()
-    summary = summarizer(parser.document, 5)  # Let's assume 5 sentences is our limit
+    summary = summarizer(parser.document, 15)  
 
     summary_text = " ".join([str(sentence) for sentence in summary])
     words = summary_text.split()
